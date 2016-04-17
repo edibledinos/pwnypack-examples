@@ -123,7 +123,7 @@ def candypop(system_cmd):
     libc_base, read_buffer = parse_addrs(data)
 
     # Send the secondary program.
-    f.write(build_stage2(libc_base, read_buffer) + system_cmd, echo=False)
+    f.write(build_stage2(libc_base, read_buffer) + system_cmd.encode('latin1'), echo=False)
 
     f.read_eof(echo=True)
 
